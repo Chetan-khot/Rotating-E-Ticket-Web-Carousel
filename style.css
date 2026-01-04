@@ -1,0 +1,90 @@
+:root {
+    --bg: #050508;
+    --card-bg: #111118;
+    --accent: #00f2ff;
+    --gradient: linear-gradient(135deg, #00f2ff 0%, #0072ff 100%);
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: white;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow: hidden;
+}
+
+/* --- HOME PAGE STYLES --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    transition: transform 1s cubic-bezier(0.8, 0, 0.2, 1), opacity 0.8s;
+}
+
+.hero.slide-up {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.gradient-text {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-title { font-size: 4.5rem; margin: 10px 0; line-height: 1.1; font-weight: 800; }
+.tagline { letter-spacing: 5px; color: var(--accent); font-weight: bold; font-size: 12px; }
+.description { max-width: 450px; opacity: 0.6; line-height: 1.6; margin-bottom: 30px; }
+
+.cta-button {
+    background: white;
+    color: black;
+    border: none;
+    padding: 20px 40px;
+    font-size: 16px;
+    font-weight: 800;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cta-button:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(0,242,255,0.4); }
+
+/* --- DASHBOARD STYLES --- */
+.hidden { display: none !important; }
+
+.app-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* (Include all previous .carousel-viewport, .stack, .ticket, and .seat-grid CSS here) */
+.carousel-viewport { perspective: 2000px; width: 340px; height: 540px; }
+.stack { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; }
+.ticket { position: absolute; inset: 0; transform-style: preserve-3d; transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
+.ticket-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s; }
+.ticket.is-flipped .ticket-inner { transform: rotateY(180deg); }
+.ticket-front, .ticket-back { position: absolute; inset: 0; backface-visibility: hidden; background: var(--card-bg); border-radius: 32px; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; }
+.ticket-back { transform: rotateY(180deg); padding: 20px; background: #16161f; }
+.seat-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; margin-top: 10px; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 12px; }
+.seat { width: 100%; aspect-ratio: 1; background: rgba(255,255,255,0.1); border-radius: 2px; }
+.seat.available { background: var(--accent); }
+.ticket.active { transform: translate3d(0, 0, 0); z-index: 10; opacity: 1; }
+.ticket.next { transform: translate3d(60px, 0, -250px) rotateY(-15deg); z-index: 5; opacity: 0.4; filter: blur(4px); }
+.ticket.prev { transform: translate3d(-130%, -20%, 300px) rotate(-25deg); z-index: 15; opacity: 0; }
+.ticket.hidden { transform: translate3d(0, 0, -600px); opacity: 0; z-index: 1; }
+
+.controls { margin-top: 30px; display: flex; gap: 15px; align-items: center; }
+.nav-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; }
+.accent-btn { background: white; color: black; }
+.text-btn { background: none; border: none; font-size: 12px; opacity: 0.5; }

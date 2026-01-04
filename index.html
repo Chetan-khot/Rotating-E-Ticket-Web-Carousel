@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus | Digital Experience</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section id="homePage" class="hero">
+        <div class="hero-content">
+            <p class="tagline">FUTURE OF TICKETING</p>
+            <h1 class="main-title">Experience the <br><span class="gradient-text">Unthinkable.</span></h1>
+            <p class="description">Secure, 3D-integrated digital passes for the world's most exclusive events.</p>
+            <button id="buyTicketsBtn" class="cta-button">Buy Tickets Now</button>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-orb"></div>
+        </div>
+    </section>
+
+    <main id="dashboardPage" class="app-container hidden">
+        <header>
+            <p class="app-subtitle">SECURE EVENT WALLET</p>
+            <h1 class="app-title">Active Passes</h1>
+        </header>
+
+        <div class="carousel-viewport">
+            <div class="stack" id="ticketStack"></div>
+        </div>
+
+        <div class="controls">
+            <button id="prevBtn" class="nav-btn">Previous</button>
+            <button id="nextBtn" class="nav-btn accent-btn">Next Pass</button>
+            <button id="backHomeBtn" class="nav-btn text-btn">Exit</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
